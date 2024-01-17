@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wniosek o dołączenie do labelu Music Bakery</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        form {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            margin: auto;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        label {
+            display: block;
+            margin: 10px 0 5px;
+            color: #555;
+        }
+
+        input {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        input[type="radio"] {
+            margin-right: 5px;
+        }
+
+        input[type="submit"] {
+            background-color: #4caf50;
+            color: #fff;
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <h1>Wniosek o dołączenie do labelu Music Bakery</h1>
+    <form action="/send.html" method="post">
+        <label for="username">Adres e-mail</label>
+        <input type="text" id="username" name="mail" required>
+        <br>
+        <label for="discord">Podaj twój Discord:</label>
+        <input type="text" id="discord" name="discord" required>
+        <br>
+        <label for="label">Czy tworzyłeś już muzykę na jakimś kanale/labelu (jeśli tak, to na jakim)</label>
+        <input type="radio" name="label" value="nie"> Nie
+        <input type="text" name="label" placeholder="jeżeli tak to na jakim?"> Inne
+        <br>
+        <label for="wiek">Ile masz lat</label>
+        <input type="text" id="wiek" name="wiek" required>
+        <br>
+        <label for="warunki">Czy masz dobre warunki do nagrywania? (dobry mikrofon, jakieś pianki akustyczne itp)</label>
+        <input type="radio" name="warunki" value="tak"> Tak
+        <input type="radio" name="warunki" value="Tak,średnio"> Tak średnio
+        <input type="radio" name="warunki" value="Nie"> Nie
+        <br>
+        <label for="mix">Czy umiesz robić mix/mastering</label>
+        <input type="radio" name="mix" value="Tak, i to bardzo dobrze"> Tak, i to bardzo dobrze
+        <input type="radio" name="mix" value="Tak, ale nie najlepiej"> Tak, ale nie najlepiej
+        <input type="radio" name="mix" value="Tak, ale nie nawidzę tego"> Tak, ale nie nawidzę tego
+        <input type="radio" name="mix" value="Nie, ale chcę się nauczyć"> Nie, ale chcę się nauczyć
+        <input type="radio" name="mix" value="nie"> Nie
+        <br>
+        <input type="submit" value="Send">
+    </form>
+</body>
+</html>
