@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="pl">
+  <head>
+    <meta charset="utf-8">
+    <title>Edit Todo</title>
+    <style>
+      body {
+        font-family: "Poppins", sans-serif;
+        background-color: #121212;
+        color: #ffffff;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+      }
+      h1 {
+        font-size: 2rem;
+        margin-bottom: 20px;
+      }
+      .container {
+        width: 90%;
+        max-width: 400px;
+        background: #1e1e1e;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 4px 10px rgba(255, 255, 255, 0.1);
+        text-align: center;
+      }
+      input[type="text"] {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 20px;
+        border: none;
+        border-radius: 5px;
+        background: #2a2a2a;
+        color: white;
+        outline: none;
+        font-size: 1rem;
+      }
+      button {
+        background: #4CAF50;
+        color: white;
+        border: none;
+        padding: 10px;
+        width: 100%;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: 0.3s;
+        font-size: 1rem;
+      }
+      button:hover {
+        background: #45a049;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Edit Todo</h1>
+    <div class="container">
+      <form id="edit-form">
+        <input type="text" id="edit-input" placeholder="Edit your task" required>
+        <button type="submit">Save</button>
+      </form>
+    </div>
+    <script>
+      const urlParams = new URLSearchParams(window.location.search);
+      const index = urlParams.get("index");
+      if (index === null) {
+        alert("Nic nie ma do edycji.");
+        window.location.href = "index.html";
+      }
+      let todos = JSON.parse(localStorage.getItem("todos")) || [];
+      if (index >= todos.length || index < 0) {
+        alert("Invalid task index.");
+        window.location.href = "index.html";
+      }
+      const editInput = document.getElementById("edit-input");
+      editInput.value = todos[index].task;
+      document.getElementById("edit-form").addEventListener("submit", function (e) {
+        e.preventDefault();
+        const newTask = editInput.value.trim();
+        if (newTask) {
+          todos[index].task = newTask;
+          localStorage.setItem("todos", JSON.stringify(todos));
+          window.location.href = "index.html";
+        }
+      });
+    </script>
+  </body>
+</html>
