@@ -1,94 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>BLC Portfolio</title>
-    <link rel="shortcut icon" href="/assets/favicon.ico" type="image/x-icon" />
-    <link rel="stylesheet" href="style.css" />
-    <style>
-      body {
-        font-family: Arial, sans-serif;
-        text-align: center;
-        background-color: #0d0d0d;
-        color: white;
-        margin: 0;
-        padding: 0;
-      }
-
-      header {
-        padding: 40px 0;
-      }
-
-      .profilepic {
-        display: block;
-        margin: 0 auto;
-        width: 230px;
-        height: 230px;
-        border-radius: 50%;
-        object-fit: cover;
-      }
-
-      button {
-        background-color: #222;
-        color: white;
-        border: none;
-        padding: 12px 24px;
-        margin: 10px;
-        font-size: 16px;
-        border-radius: 10px;
-        cursor: pointer;
-        transition: background-color 0.3s ease;
-      }
-
-      button:hover {
-        background-color: #444;
-      }
-
-      main h1 {
-        margin-top: 50px;
-        font-size: 24px;
-      }
-      a{
-        text-decoration: none;
-        color:blanchedalmond;
-      }
-
     
-    </style>
-  </head>
-  <body>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <title>Portfolio</title>
+</head>
+<body>
     <header>
-      <img src="profile_pic.jpg" alt="BLC" class="profilepic" />
-      <h1>BLC</h1>
+        <a href="#" class="logo">BLC</a>
+
+        <nav>
+            <a href="#" class="active"> Home</a>
+            <a href="portfolio.html" >Portfolio Projektów</a>
+            <a href="kontakt.html" >Kontakt</a>
+        </nav>
     </header>
-
-    <main>
-      <a href="https://instagram.com/blc_3784" target="_blank">
-        <button>📸 Instagram</button>
-      </a>
-      <a href="https://www.x.com/blctoblc" target="_blank">
-        <button>🦜 X</button>
-      </a>
-      <a href="kontakt.html">
-        <button>📩 Kontakt</button>
-      </a>
-      <a href="https://github.com/BLCXD" target="_blank">
-        <button>👾 Github</button>
-      </a>
-    </main>
-
-    <main>
-      <h1>PART OF</h1>
-    
-      </a>
-      <a href="https://waveproject.rf.gd" target="_blank">
-        <button>👋 Waveproject</button>
-      </a>
-    </main>
-
-    <footer>
-      <p style="color: blanchedalmond;">2025 &copy; <a href="https://waveproject.rf.gd">waveproject</a></p>
-    </footer>
-  </body>
+    <section class="home">
+        <div class="home-img">
+            <img src="main.jpg" alt="">
+        </div>
+        <div class="home-content">
+            <h1>Cześć, jetem <span>BLC</span></h1>
+            <!--<h3 class="typing-text">Jestem <span class="typing-text"> </span></h3> -->
+            <p>Jestem programistą, który specjalizuje się w tworzeniu aplikacji internetowych i mobilnych. Posiadam doświadczenie w pracy z różnymi technologiami i narzędziami, co pozwala mi na dostosowanie się do potrzeb klientów i projektów.</p>
+            <div class="social-icons">
+                <a href="https://github.com/BLCXD"><i class="fa-brands fa-github"></i></a>
+                <a href="https://x.com/blctoblc"><i class="fa-brands fa-x-twitter"></i></a>
+                <a href="https://instagram.com/blc_3784"><i class="fa-brands fa-instagram"></i></a>
+            </div>
+            <a href="#" class="btn">Masz dla mnie robotę? Kliknij w ten przycisk.</a>
+        </div>
+    </section>
+</body>
 </html>
