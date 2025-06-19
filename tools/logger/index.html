@@ -17,23 +17,32 @@
   <p><small>Ta strona rejestruje adres IP i lokalizację użytkownika do celów statystycznych.</small></p>
 
   <script>
-    const scriptURL = "https://script.google.com/macros/s/AKfycbwWhg37xT8pUj4WUalmVCNu5mBSU3f7bYe9gezcnCFCJlF_alWgW3pwyfJCZGGD_3wy/exec"; // ← Wklej swój URL
+    const scriptURL = "https://script.google.com/macros/s/AKfycbwWhg37xT8pUj4WUalmVCNu5mBSU3f7bYe9gezcnCFCJlF_alWgW3pwyfJCZGGD_3wy/exec"; // ← Wklej swój URL z Google Apps Script
 
-    fetch("https://ipwho.is/json/")
+    fetch("https://ipwho.is/")
       .then(res => res.json())
       .then(data => {
-        // Wyświetlanie na stronie
-        document.getElementById("ip").textContent = data.query;
-        document.getElementById("country").textContent = data.country;
-        document.getElementById("city").textContent = data.city;
-        document.getElementById("isp").textContent = data.isp;
+        if (!data.success) {
+          throw new Error("Nie udało się pobrać danych IP");
+        }
 
-        // Wysyłanie do Google Sheets
+        const ip = data.ip;
+        const country = data.country;
+        const city = data.city;
+        const isp = data.connection && data.connection.isp ? data.connection.isp : "Brak danych";
+
+        // Wyświetlenie na stronie
+        document.getElementById("ip").textContent = ip;
+        document.getElementById("country").textContent = country;
+        document.getElementById("city").textContent = city;
+        document.getElementById("isp").textContent = isp;
+
+        // Wysłanie do Google Sheets
         const formData = new URLSearchParams();
-        formData.append("ip", data.query);
-        formData.append("country", data.country);
-        formData.append("city", data.city);
-        formData.append("isp", data.isp);
+        formData.append("ip", ip);
+        formData.append("country", country);
+        formData.append("city", city);
+        formData.append("isp", isp);
 
         fetch(scriptURL, {
           method: "POST",
@@ -45,7 +54,7 @@
         });
       })
       .catch(error => {
-        console.error("Błąd przy pobieraniu IP:", error);
+        console.error("Błąd:", error);
         document.getElementById("ip").textContent = "Błąd";
         document.getElementById("country").textContent = "Błąd";
         document.getElementById("city").textContent = "Błąd";
